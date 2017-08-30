@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 65861157949244846}
   - component: {fileID: 114634232316703648}
   m_Layer: 9
-  m_Name: '[CameraRig]'
+  m_Name: PortalKour Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,8 +580,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 54377062908042422}
+  groundHit: 0
   left: {fileID: 114932859072042466}
   right: {fileID: 114821451466613316}
+  isGrounded: 1
 --- !u!114 &114751085923146472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -628,6 +630,7 @@ MonoBehaviour:
   controller: {fileID: 114102195064076466}
   previousPos: {x: 0, y: 0, z: 0}
   canGrip: 0
+  canGripAir: 0
 --- !u!114 &114932859072042466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -642,6 +645,7 @@ MonoBehaviour:
   controller: {fileID: 114997008045371752}
   previousPos: {x: 0, y: 0, z: 0}
   canGrip: 0
+  canGripAir: 0
 --- !u!114 &114997008045371752
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,1 +1,2 @@
-controller bounding box (Bo collider on controller left, right and shrink and set as trigger)
+controller bounding box (Bo collider on controller left, right and shrink and set as trigger) Done
+
