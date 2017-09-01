@@ -7,6 +7,7 @@ TagManager:
   - FxTemporaire
   - projectile
   - Floor
+  - portal wall
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Controller
   - Body
   - Grip
-  - 
+  - PortalWall
   - 
   - 
   - 
