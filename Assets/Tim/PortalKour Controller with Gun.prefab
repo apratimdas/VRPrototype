@@ -77,7 +77,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1178171937137448
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,13 +108,14 @@ GameObject:
   - component: {fileID: 33360400971352790}
   - component: {fileID: 23291952960541056}
   - component: {fileID: 114932425126089702}
+  - component: {fileID: 114677603499338246}
   m_Layer: 0
   m_Name: PM-40_Variant1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1383643901441884
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +185,8 @@ GameObject:
   - component: {fileID: 4234753512257508}
   - component: {fileID: 20247774469694958}
   - component: {fileID: 124898202637885976}
-  - component: {fileID: 114619429726733292}
+  - component: {fileID: 65684330816526626}
+  - component: {fileID: 114682559069403686}
   m_Layer: 0
   m_Name: Camera (eye)
   m_TagString: MainCamera
@@ -307,8 +309,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1419628834225452}
-  m_LocalRotation: {x: -0, y: -0.9999046, z: -0, w: 0.0138182305}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4196020019865206}
@@ -316,7 +318,7 @@ Transform:
   - {fileID: 4852984854332560}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -178.41602, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4298248818013522
 Transform:
   m_ObjectHideFlags: 1
@@ -449,7 +451,7 @@ Transform:
   m_GameObject: {fileID: 1081968900901836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5326301, z: 1}
   m_Children:
   - {fileID: 4234753512257508}
   - {fileID: 4807857069258362}
@@ -870,6 +872,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11746168, y: 0.09665551, z: 0.2375477}
   m_Center: {x: -0.0005122299, y: -0.030518929, z: -0.058304813}
+--- !u!65 &65684330816526626
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713606825669798}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65973323974559558
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1003,20 +1017,6 @@ MonoBehaviour:
   verbose: 0
   createComponents: 1
   updateDynamically: 1
---- !u!114 &114619429726733292
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1713606825669798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _head: {fileID: 4852984854332560}
-  _ears: {fileID: 4807857069258362}
-  wireframe: 0
 --- !u!114 &114634182760895710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1030,6 +1030,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: -1
   origin: {fileID: 0}
+--- !u!114 &114677603499338246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1240854884061148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fe1e5e3e92b71429dc91fb141acf5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  otherPortal: {fileID: 0}
+  body: {fileID: 0}
+--- !u!114 &114682559069403686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713606825669798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _head: {fileID: 4852984854332560}
+  _ears: {fileID: 4807857069258362}
+  wireframe: 0
 --- !u!114 &114725258489907004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1042,6 +1069,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 54511903433231942}
+  weapon: {fileID: 1240854884061148}
+  model: {fileID: 1134587372485474}
   groundHit: 0
   left: {fileID: 114776140573899808}
   right: {fileID: 114498014778178932}
@@ -1112,8 +1141,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerRight: {fileID: 1383643901441884}
+  trackedObj: {fileID: 114634182760895710}
   TracerEffect: {fileID: 11400000, guid: b2007fe5631c7614586d24a05e074a32, type: 2}
   muzzleTransform: {fileID: 4298248818013522}
+  toggle: 0
+  leftPortal: {fileID: 0}
+  rightPortal: {fileID: 0}
+  manager: {fileID: 114725258489907004}
 --- !u!124 &124898202637885976
 Behaviour:
   m_ObjectHideFlags: 1
