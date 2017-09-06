@@ -23,6 +23,8 @@ public class stepThroughPortal : MonoBehaviour {
         {
             Debug.Log("hit!");
             body.transform.position = otherPortal.transform.position + otherPortal.transform.forward * 3;
+            body.transform.forward = -otherPortal.transform.forward;
+            body.GetComponent<Rigidbody>().velocity = body.transform.rotation * body.GetComponent<Rigidbody>().velocity;
         }
     }
 }

@@ -7,6 +7,9 @@ public class PlayScript : MonoBehaviour {
 
     private bool touched = false;
 
+    [SerializeField]
+    private string level;
+
 	// Use this for initialization
 	void Start () {
 		

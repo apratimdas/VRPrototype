@@ -1,2 +1,6 @@
 controller bounding box (Bo collider on controller left, right and shrink and set as trigger) Done
 
+
+Fix rotation on portal switch
+Fix motion on rotation change
+Add Level easy level switching

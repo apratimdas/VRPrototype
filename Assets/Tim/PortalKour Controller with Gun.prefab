@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 23291952960541056}
   - component: {fileID: 114932425126089702}
   - component: {fileID: 114677603499338246}
+  - component: {fileID: 114715222385665246}
   m_Layer: 0
   m_Name: PM-40_Variant1
   m_TagString: Untagged
@@ -186,8 +187,9 @@ GameObject:
   - component: {fileID: 20247774469694958}
   - component: {fileID: 124898202637885976}
   - component: {fileID: 65684330816526626}
-  - component: {fileID: 114682559069403686}
-  m_Layer: 0
+  - component: {fileID: 65106412762704174}
+  - component: {fileID: 114312533343325464}
+  m_Layer: 12
   m_Name: Camera (eye)
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -811,7 +813,7 @@ Rigidbody:
   m_GameObject: {fileID: 1419628834225452}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 1
@@ -860,6 +862,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11746168, y: 0.09665551, z: 0.2375477}
   m_Center: {x: -0.0005122299, y: -0.030518929, z: -0.058304813}
+--- !u!65 &65106412762704174
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713606825669798}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65586256448812408
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -940,6 +954,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrcam: {fileID: 0}
+--- !u!114 &114312533343325464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713606825669798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _head: {fileID: 4852984854332560}
+  _ears: {fileID: 4807857069258362}
+  wireframe: 0
 --- !u!114 &114388628678902330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1043,20 +1071,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   otherPortal: {fileID: 0}
   body: {fileID: 0}
---- !u!114 &114682559069403686
+--- !u!114 &114715222385665246
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1713606825669798}
+  m_GameObject: {fileID: 1240854884061148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
+  m_Script: {fileID: 11500000, guid: d6fe1e5e3e92b71429dc91fb141acf5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _head: {fileID: 4852984854332560}
-  _ears: {fileID: 4807857069258362}
-  wireframe: 0
+  otherPortal: {fileID: 0}
+  body: {fileID: 0}
 --- !u!114 &114725258489907004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1075,6 +1102,7 @@ MonoBehaviour:
   left: {fileID: 114776140573899808}
   right: {fileID: 114498014778178932}
   isGrounded: 1
+  playerCamera: {fileID: 20247774469694958}
 --- !u!114 &114776140573899808
 MonoBehaviour:
   m_ObjectHideFlags: 1
