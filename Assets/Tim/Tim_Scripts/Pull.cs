@@ -54,11 +54,13 @@ public class Pull : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        canGrip = true;
+        if(other.tag == "GrabSurface")
+            canGrip = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        canGrip = false;
+        if (other.tag == "GrabSurface")
+            canGrip = false;
     }
 }

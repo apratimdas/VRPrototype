@@ -17,8 +17,10 @@ public class GripManager : MonoBehaviour {
     public Camera playerCamera;
     // Use this for initialization
     void Start () {
-		
-	}
+        //StartCoroutine("FixRotation");
+    }
+    
+
     void FixedUpdate()
     {
         var ldevice = SteamVR_Controller.Input((int)left.controller.index);
@@ -58,21 +60,25 @@ public class GripManager : MonoBehaviour {
 
         if (doubleGripped && isGrounded)
         {
+            Debug.Log("Inside");
             body.useGravity = false;
             body.isKinematic = true;
-            Vector3 pos = left.previousPos - left.transform.localPosition;
+            Vector3 lpos = left.previousPos - left.transform.localPosition;
+            Vector3 rpos = right.previousPos - right.transform.localPosition;
+            Vector3 pos = lpos.magnitude > rpos.magnitude ? lpos : rpos;
+
             Debug.Log("pos" + pos);
             Debug.Log("Rotation" + body.transform.rotation);
             Debug.Log("rotated pos" + body.transform.rotation * pos);
 
             body.transform.position += body.transform.rotation * pos;
             //body.velocity = Mathf.Max((left.previousPos - left.transform.localPosition) / Time.deltaTime , (right.previousPos - right.transform.localPosition)/Time.deltaTime);
-            Vector3 lvelocity = body.transform.rotation * (left.previousPos - left.transform.localPosition) / Time.deltaTime;
-            Vector3 rvelocity = body.transform.rotation * (right.previousPos - right.transform.localPosition) / Time.deltaTime;
+            Vector3 lvelocity = (left.previousPos - left.transform.localPosition) / Time.deltaTime;
+            Vector3 rvelocity = (right.previousPos - right.transform.localPosition) / Time.deltaTime;
 
             if(ldevice.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger) || rdevice.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
             {
-                body.velocity = Mathf.Max(lvelocity.magnitude, rvelocity.magnitude) == lvelocity.magnitude ? body.transform.rotation * lvelocity : body.transform.rotation * rvelocity;
+                body.velocity = (Mathf.Max(lvelocity.magnitude, rvelocity.magnitude) == lvelocity.magnitude ? body.transform.rotation * lvelocity : body.transform.rotation * rvelocity)*1.5f;
                 isGrounded = false;
             }
         }
@@ -117,10 +123,22 @@ public class GripManager : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Floor")
+        if (collision.gameObject.tag == "Floor")
+        {
             isGrounded = true;
-    }
 
+            if(body.transform.eulerAngles.x != 0 || body.transform.eulerAngles.z != 0)
+            {
+                body.transform.eulerAngles = new Vector3(0, body.transform.eulerAngles.y, 0);
+                Ray ray = new Ray(body.transform.position, -body.transform.up);
+                RaycastHit hit = new RaycastHit();
+                Physics.Raycast(ray, out hit);
+
+                body.transform.position = hit.point;
+            }
+            
+        }
+    }
     private void OnCollisionExit(Collision collision)
     {
         //if (collision.gameObject.tag == "Floor" && (!doubleGripped))
