@@ -125,18 +125,22 @@ public class GripManager : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Floor")
         {
+            if (body.drag != 1) body.drag = 1;
+            if (body.mass != 1) body.mass = 1;
             isGrounded = true;
+            body.transform.eulerAngles = new Vector3(0, body.transform.eulerAngles.y, 0);
+            body.drag = 0;
+            body.mass = 10000;
+            //if(body.transform.eulerAngles.x != 0 || body.transform.eulerAngles.z != 0)
+            //{
+            //    body.transform.eulerAngles = new Vector3(0, body.transform.eulerAngles.y, 0);
+            //    Ray ray = new Ray(body.transform.position, -body.transform.up);
+            //    RaycastHit hit = new RaycastHit();
+            //    Physics.Raycast(ray, out hit);
 
-            if(body.transform.eulerAngles.x != 0 || body.transform.eulerAngles.z != 0)
-            {
-                body.transform.eulerAngles = new Vector3(0, body.transform.eulerAngles.y, 0);
-                Ray ray = new Ray(body.transform.position, -body.transform.up);
-                RaycastHit hit = new RaycastHit();
-                Physics.Raycast(ray, out hit);
+            //    body.transform.position = hit.point;
+            //}
 
-                body.transform.position = hit.point;
-            }
-            
         }
     }
     private void OnCollisionExit(Collision collision)
