@@ -44,7 +44,11 @@ public class GripManager : MonoBehaviour {
         {
             weaponselect = !weaponselect;
         }
-        if(weaponselect)
+        if (ldevice.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
+        {
+            rweaponselect = !rweaponselect;
+        }
+        if (weaponselect)
         {
             model.SetActive(false);
             weapon.SetActive(true);

@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Tim/Scenes/TestScene.unity
+    guid: 740da0b8ddba93341ac657542a0571c5
+  - enabled: 1
     path: Assets/Tim/Scenes/PortalTest.unity
     guid: 723291894fe3508469c12d7781c53452
   - enabled: 1
     path: Assets/Tim/Scenes/Menu.unity
     guid: c6e7b305f6ede2d4aabb19f6860e7a76
   - enabled: 1
-    path: Assets/Tim/Scenes/TestScene.unity
-    guid: 740da0b8ddba93341ac657542a0571c5
+    path: Assets/Levels/#1.unity
+    guid: 6e403f60b8facb54fb7771fcb073b97d
+  - enabled: 1
+    path: Assets/Levels/#2/#2.unity
+    guid: 00d64be8c4048c94db7cb8b50b8ba5df

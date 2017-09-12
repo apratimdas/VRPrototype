@@ -9,7 +9,7 @@ public class gunController : MonoBehaviour {
 
     public SteamVR_TrackedObject trackedObj;
     private SteamVR_Controller.Device device;
-
+    public SteamVR_TrackedController trackedController;
     //private SteamVR_TrackedController controller;
 
     public EffectTracer TracerEffect;
@@ -17,8 +17,8 @@ public class gunController : MonoBehaviour {
 
     public bool toggle;
 
-    public GameObject leftPortal;
-    public GameObject rightPortal;
+    public GameObject Portal;
+    //public GameObject rightPortal;
     public GripManager manager;
 
 	// Use this for initialization
@@ -30,7 +30,7 @@ public class gunController : MonoBehaviour {
 
     private void TriggerPressed(object sender, ClickedEventArgs e)
     {
-        if(manager.weapon)
+        if(manager.weapon || manager.rweapon)
             ShootWeapon();
     }
 
@@ -50,17 +50,9 @@ public class gunController : MonoBehaviour {
                 toggle = !toggle;
 
                 Quaternion hitObjRotation = Quaternion.LookRotation(hit.normal);
-                if (toggle)
-                {
-                    leftPortal.transform.position = hit.point;
-                    leftPortal.transform.rotation = hitObjRotation;
-                }
-                else
-                {
-                    rightPortal.transform.position = hit.point;
-                    rightPortal.transform.rotation = hitObjRotation;
-                }
-
+                Portal.transform.position = hit.point;
+                Portal.transform.rotation = hitObjRotation;
+                
             }
         }
     }
@@ -68,6 +60,8 @@ public class gunController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         var device = SteamVR_Controller.Input((int)trackedObj.index);
+        if (trackedController.triggerPressed)
+            Debug.Log("gunshot");
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
             ShootWeapon();
     }

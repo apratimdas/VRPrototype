@@ -37,15 +37,15 @@ public class stepThroughPortal : MonoBehaviour {
 
             Quaternion rotator = Quaternion.FromToRotation(eyes.transform.forward, otherPortal.transform.forward);
 
-            body.transform.position = otherPortal.transform.position + otherPortal.transform.forward * 2;
+            body.transform.position = otherPortal.transform.position + otherPortal.transform.forward * 5;
             Vector3 forward = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
 
             body.transform.forward = portalRotator * body.transform.forward * -1;
+            //body.GetComponent<Rigidbody>().velocity = body.GetComponent<Rigidbody>().velocity
 
-            
             //body.transform.forward = forward.normalized * -1;
-           
-            
+
+
             //body.transform.forward = rotator * body.transform.forward;
 
             Vector3 speed = body.GetComponent<Rigidbody>().velocity;
