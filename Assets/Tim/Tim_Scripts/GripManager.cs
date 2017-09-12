@@ -39,7 +39,8 @@ public class GripManager : MonoBehaviour {
 
         if(ldevice.GetTouch(SteamVR_Controller.ButtonMask.ApplicationMenu) || rdevice.GetTouch(SteamVR_Controller.ButtonMask.ApplicationMenu))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("TestScene");
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         
         if(rdevice.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
