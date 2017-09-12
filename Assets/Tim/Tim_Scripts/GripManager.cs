@@ -32,6 +32,8 @@ public class GripManager : MonoBehaviour {
         bool isGripped = left.canGrip || right.canGrip;
         doubleGripped = left.canGripAir && right.canGripAir;
 
+        Debug.Log(isGrounded);
+
         //if (doubleGripped)
         //    Debug.Log("Double pressed");
 
