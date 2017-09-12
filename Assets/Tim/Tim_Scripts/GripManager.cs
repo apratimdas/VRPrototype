@@ -7,13 +7,16 @@ public class GripManager : MonoBehaviour {
 
     public Rigidbody body;
     public GameObject weapon;
+    public GameObject rweapon;
     public GameObject model;
+    public GameObject rmodel;
     public float groundHit;
     public Pull left;
     public Pull right;
     public bool isGrounded = true;
     bool doubleGripped;
     bool weaponselect=false;
+    bool rweaponselect = false;
     public Camera playerCamera;
     // Use this for initialization
     void Start () {
@@ -50,6 +53,16 @@ public class GripManager : MonoBehaviour {
         {
             model.SetActive(true);
             weapon.SetActive(false);
+        }
+        if (rweaponselect)
+        {
+            rmodel.SetActive(false);
+            rweapon.SetActive(true);
+        }
+        else
+        {
+            rmodel.SetActive(true);
+            rweapon.SetActive(false);
         }
 
         //Debug.Log(isGrounded);
